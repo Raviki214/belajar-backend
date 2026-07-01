@@ -1,10 +1,14 @@
-function hitunganDiskon(harga, diskon) {
-    let hargaDiskon = harga - diskon ;
-    return hargaDiskon;
-}
+const sqlite3 = require('sqlite3').verbose();
+const db = new sqlite3.Database(`./kafe.db`);
 
-let HargaGamepass = hitunganDiskon(100000, 20000);
+db.serialize(() => {
+    db.run(`
+        CREATE TABLE IF NOT EXISTS menu (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            nama_makanan TEXT,
+            harga INTEGER)
+            `);
 
-console.log(`harga Gamepass setelah diskon adalah ${HargaGamepass}`);
-
-console.log(`fitur diskon aktif`);
+            console.log('Database and table created successfully.');
+});
+db.close();

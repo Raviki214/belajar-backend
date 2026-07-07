@@ -19,6 +19,8 @@
   },
   "homepage": "https://github.com/Raviki214/belajar-backend#readme",
   "dependencies": {
+    "express": "^5.2.1",
+    "pg": "^8.22.0",
     "sqlite3": "^6.0.1"
   }
 }
